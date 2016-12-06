@@ -15,7 +15,9 @@ To use the package, you have to do these (in order):
 
 1. Load experiment parameters file (e.g. xor-experiment-parameters.lisp).
 2. Load the package: 
+
   (ql:quickload :cl-neat)
+  
   Loading through asdf probably works too.
 3.	Define fitness function that takes a network as its only argument and returns fitness as float equal or greater than zero. 
  * If the function is written in Lisp then it must be named experiment-evaluate-network. Taking a look at xor-test.lisp, it can be seen that activate-network-with-inputs takes a network with inputs and returns a list of outputs.
