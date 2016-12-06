@@ -95,7 +95,7 @@ The call to such a fitness function would be quite simple after loading:
 ```
 *	_genome.lisp_: defines genome and manipulation functions.
 *	_globals.lisp_: contains some global variables majorly used for constructing starter genome. Could be eliminated in the future. 
-*	_l.lisp_: main file loading everything and defining population, organisms, species and start function.
+*	_population.lisp_: main file loading everything and defining population, organisms, species and start function.
 *	_network.lisp_: neural network code.
 *	_pln-test.lisp_: pln-experiment test, uses foreign function interface.
 *	_xor-test.lisp_: defines XOR experiment.
