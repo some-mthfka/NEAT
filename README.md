@@ -1,8 +1,7 @@
 # NEAT
 Common Lisp Implementation of NeuroEvolution of Augmenting Topologies (NEAT)
 
-The Lisp package described here was developed according to a technique devised by Stanley and Miikkulainen in a paper called Evolving Neural Networks through Augmenting Topologies. A copy of the paper can be obtained here: 
-http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf 
+The Lisp package described here was developed according to a technique devised by Stanley and Miikkulainen in a paper called Evolving Neural Networks through Augmenting Topologies. A copy of the paper can be obtained here: http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf 
 
 Please note that the purpose of this documentation is not to describe how NEAT works, but rather to:
   1.	Explain how to use the package,
@@ -11,6 +10,7 @@ Please note that the purpose of this documentation is not to describe how NEAT w
 
 ## Usage
 For an example, take a look at the attached xor-experiment-parameters.lisp and xor-test.lisp.
+
 To use the package, you have to do these (in order):
 
 1. Load experiment parameters file (e.g. xor-experiment-parameters.lisp).
@@ -59,17 +59,18 @@ The one and only modification (as far as my vision goes) is the aging scheme, wh
 ![alt text](https://github.com/meatich/NEAT/blob/master/aging.gif "Age formula")
 
 where s is adjusted fitness, A is the age of the oldest species, g is age significance (*age-significance* in the package). The age of a species is reset to zero when some organism of that species beats the best record of actual fitness inside that species.
+
 Also, ability to cap the maximum amount of species per population is implemented. So, when a cap is reached, if some new organism is not compatible with any of the existing species in the population, instead of creating a new species, it is assigned to the one it is most compatible with.
-Package File Structure
+
+## Package File Structure
 *	xor-experiment-parameters.lisp: contains all the global parameters needed for the XOR experiment.
 *	pln-experiment-parameters.lisp: contains all the global parameters needed for the PLN experiment.
 *	foreign-evaluator.lisp
 Uses foreign function interface to call a fitness function written in a different language and has C interface. One function should be featured in the interface:
 
-
 `float c_evalme(EncodedNeuron n[MAX_NEURONS_PER_NETWORK],int neuron_count);`
 
-where EncodedNeuron is a struct:
+where _EncodedNeuron_ is a struct:
 
 ```
 struct EncodedNeuron
@@ -90,11 +91,11 @@ The call to such a fitness function would be quite simple after loading:
 (defun experiment-evaluate-network (network)
   (call-evalme network))
 ```
-*	genome.lisp: defines genome and manipulation functions.
-*	globals.lisp: contains some global variables majorly used for constructing starter genome. Could be eliminated in the future. 
-*	l.lisp: main file loading everything and defining population, organisms, species and start function.
-*	network.lisp: neural network code.
-*	pln-test.lisp: pln-experiment test, uses foreign function interface.
-*	xor-test.lisp: defines XOR experiment.
-*	printers.lisp: function for saving and printing info about population or organisms.
-*	starter.lisp: functions for constructing intitial population or reading one from file.
+*	_genome.lisp_: defines genome and manipulation functions.
+*	_globals.lisp_: contains some global variables majorly used for constructing starter genome. Could be eliminated in the future. 
+*	_l.lisp_: main file loading everything and defining population, organisms, species and start function.
+*	_network.lisp_: neural network code.
+*	_pln-test.lisp_: pln-experiment test, uses foreign function interface.
+*	_xor-test.lisp_: defines XOR experiment.
+*	_printers.lisp_: function for saving and printing info about population or organisms.
+*	_starter.lisp_: functions for constructing intitial population or reading one from file.
