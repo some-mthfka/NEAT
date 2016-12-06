@@ -56,7 +56,7 @@ will load the generation from "exp_5" and save results to "exp_5" while renaming
 ## Modifications
 The one and only modification (as far as my vision goes) is the aging scheme, which the paper did not address. The C++ implementation by Stanley did include a variation of aging, but this package offers a different kind. The main idea is that a species is given a fitness boost depending on its age. The younger species are given boost in terms of adjusted fitness. The older the species, the less boost it gets. The organisms in the oldest species get no boost at all. The adjusted fitness value of a species for age-boosting is defined by this relationship:
 
-![alt text](https://github.com/meatich/cl-neat/raw/master/src/aging.gif "Age formula")
+![alt text](https://github.com/meatich/NEAT/blob/master/aging.gif "Age formula")
 
 where s is adjusted fitness, A is the age of the oldest species, g is age significance (*age-significance* in the package). The age of a species is reset to zero when some organism of that species beats the best record of actual fitness inside that species.
 Also, ability to cap the maximum amount of species per population is implemented. So, when a cap is reached, if some new organism is not compatible with any of the existing species in the population, instead of creating a new species, it is assigned to the one it is most compatible with.
