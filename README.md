@@ -65,9 +65,9 @@ where s is adjusted fitness, A is the age of the oldest species, g is age signif
 Also, ability to cap the maximum amount of species per population is implemented. So, when a cap is reached, if some new organism is not compatible with any of the existing species in the population, instead of creating a new species, it is assigned to the one it is most compatible with.
 
 ## Package File Structure
-*	xor-experiment-parameters.lisp: contains all the global parameters needed for the XOR experiment.
-*	pln-experiment-parameters.lisp: contains all the global parameters needed for the PLN experiment.
-*	foreign-evaluator.lisp
+*	_xor-experiment-parameters.lisp_: contains all the global parameters needed for the XOR experiment.
+*	_pln-experiment-parameters.lisp_: contains all the global parameters needed for the PLN experiment.
+*	_foreign-evaluator.lisp_
 Uses foreign function interface to call a fitness function written in a different language and has C interface. One function should be featured in the interface:
 
 `float c_evalme(EncodedNeuron n[MAX_NEURONS_PER_NETWORK],int neuron_count);`
