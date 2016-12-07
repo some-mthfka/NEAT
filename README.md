@@ -11,7 +11,12 @@ Please note that the purpose of this documentation is not to describe how NEAT w
   3.	Describe the file structure of the package.
 
 ## Usage
-For an example, take a look at _xor-experiment-parameters.lisp_ and _xor-test.lisp_.
+Example client code: _xor-experiment-parameters.lisp_ and _xor-test.lisp_.
+
+### Assumptions and invariants
+1. Neural networks do not have loops. The connections in the starter genome should therefore create no loops either. 
+2. Number of neural network inputs and outputs for any given experiment does not change.
+3. Fitness is positive or zero. I do not remember why this is the case, so maybe the fitness could be negative.
 
 ### Writing an experiment file from scratch
 1. Load experiment parameters file (e.g. xor-experiment-parameters.lisp).
