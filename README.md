@@ -108,22 +108,27 @@ The call to such a fitness function would be quite simple after loading:
 *	_starter.lisp_: functions for constructing intitial population or reading one from file.
 
 ## Demo
+[SBCL](http://www.sbcl.org) was the interpreter of choice.
+
 ### XOR-function
 A sample run that evolves a network to behave like a XOR-function (which requires at least one hidden node):
 
 ![Evolving network to be XOR-like](https://github.com/meatich/NEAT/blob/master/sshot-251.png "Evolving network to be XOR-like")
 
 Notes to the picture:
+ * _xor-test.lisp_ and _xor-experiment-parameters.lisp_ were used. To run yourself, do _(load xor-test.lisp)_ and _(start)_.
  * Population size: 150 organisms
+ * _#sp_ means number of species and grows so large because compatibility threshold was set low. However, the convergence seems to be faster this way.
  * When a network's output is rounded to the nearest integer and matches real XOR outputs, the fitness of the function is set to maximum fitness (sixteen) and the experiment ends.
 
 With the parameters picked by trial and error, the average solution takes about 35 generations to evolve, which is not far from the results in the paper: 32 generations on average. The parameters could be tailored a bit better probably.
 
 ### Evolving for a physical-based simulation
-A special [simulation](https://github.com/meatich/PLN-Simulation) was written for a performance test - a ball bounces on a function and the goal is to push the ball as far as possible to the right in three seconds. Here is how NEAT performed on it (youtube video):
+A special [simulation](https://github.com/meatich/PLN-Simulation) was written for a performance test - a ball bounces on a function and the goal is to push the ball as far as possible to the right in three seconds. Here is the evolution process (when some organism sets the record for fitness, it is shown) (YouTube video):
 
 [![Video](http://img.youtube.com/vi/R9je0GhgaRg/0.jpg)](https://www.youtube.com/watch?v=R9je0GhgaRg)
 
 Notes to the video:
+ * _pln-test.lisp_ and _pln-experiment-parameters.lisp_ were used. However, since the simulation is not written in Lisp, to run this experiment, you would need to compile [this simulation](https://github.com/meatich/PLN-Simulation) as a shared library. Then do _(load pln-test.lisp)_ and _(start)_.
  * Fitness starts at 2000 so that there is no way for it to be negative (though I _think_ fitness could be negative)
  * More generations would produce better results. **I will post another video with those better results (and maybe even a more interesting simulation) by 2017.**
