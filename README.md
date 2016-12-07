@@ -11,10 +11,9 @@ Please note that the purpose of this documentation is not to describe how NEAT w
   3.	Describe the file structure of the package.
 
 ## Usage
-For an example, take a look at the attached xor-experiment-parameters.lisp and xor-test.lisp.
+For an example, take a look at _xor-experiment-parameters.lisp_ and _xor-test.lisp_.
 
-To use the package, you have to do these (in order):
-
+### Writing an experiment file from scratch
 1. Load experiment parameters file (e.g. xor-experiment-parameters.lisp).
 2. Load the package: 
 
@@ -27,19 +26,18 @@ To use the package, you have to do these (in order):
  (load-shared-object "evaluator.dll")
 4. Provide the starter genome off of which the whole population will be spawned. The starter genome should be minimal: the network will grow over time as needed.
 
-Now it is possible to start the experiment with (start). (Sreenshot of an example run is attached.)
-
-There are several optional arguments that the function start can take:
+### Running the experiment
+Now, after loading your experiment file (like _xor-test.lisp_), it is possible to start the experiment with _(start)_. There are several optional arguments used for saving and/or loading that the function _start_ can take:
 
 `(defun start (&optional experiment-id read-generation-file) ...)`
 
-experiment-id is the id of the experiment which will frame the save-folder's name. Not supplying anything means not saving results. Supplying a number will create a folder named `exp-<number>` and the winner organisms will be saved there. It is necessary for saving state that the global variable *save-every-generation* be specified (it is in _experiment-parameters.lisp_).
+_experiment-id_ is the id of the experiment which will frame the save-folder's name. Not supplying anything means not saving results. Supplying a number will create a folder named `exp-<number>` and the winner organisms will be saved there. It is necessary for saving state that the global variable *save-every-generation* be specified (it is in _experiment-parameters.lisp_).
 
 If experiment was saved to a file, it can be read back from read-generation-file. 
 
-NOTE: experiment-id has nothing to do with read-generation-file! experiment-id is used only for saving a population. So, read-generation-file needs to contain relative path to the experiment file including all the folders (absolute path will work too).
+NOTE: _experiment-id_ has nothing to do with _read-generation-file_! _experiment-id_ is used only for saving a population. So, _read-generation-file_ needs to contain relative path to the experiment file including all the folders (absolute path will work too).
 
-Example calls:
+### Example calls
 
 `(start nil "exp-5/gen-10.gen")`
 
