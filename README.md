@@ -1,6 +1,8 @@
 # NEAT
 Common Lisp Implementation of NeuroEvolution of Augmenting Topologies (NEAT)
 
+(scroll to the bottom for demonstration runs)
+
 The Lisp package described here was developed according to a technique devised by Stanley and Miikkulainen in a paper called Evolving Neural Networks through Augmenting Topologies. A copy of the paper can be obtained here: http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf 
 
 Please note that the purpose of this documentation is not to describe how NEAT works, but rather to:
@@ -101,3 +103,24 @@ The call to such a fitness function would be quite simple after loading:
 *	_xor-test.lisp_: defines XOR experiment.
 *	_printers.lisp_: function for saving and printing info about population or organisms.
 *	_starter.lisp_: functions for constructing intitial population or reading one from file.
+
+## Demo
+### XOR-function
+A sample run that evolves a network to behave like a XOR-function (which requires at least one hidden node):
+
+![Evolving network to be XOR-like](https://github.com/meatich/NEAT/blob/master/sshot-251.png "Evolving network to be XOR-like")
+
+Note to the picture:
+ * Population size: 150 organisms
+ * When a network's output is rounded to the nearest integer and matches real XOR outputs, the fitness of the function is set to maximum fitness (sixteen) and the experiment ends.
+
+With the parameters picked by trial and error, the average solution takes about 35 generations to evolve, which is not far from the results in the paper: 32 generations on average. The parameters could be tailored a bit better probably.
+
+### Evolving for a physical-based simulation
+A special [simulation](https://github.com/meatich/PLN-Simulation) was written for a performance test - a ball bounces on a function and the goal is to push the ball as far as possible to the right in three seconds. Here is how NEAT performed on it (youtube video):
+
+[![Video](http://img.youtube.com/vi/R9je0GhgaRg/0.jpg)](https://www.youtube.com/watch?v=R9je0GhgaRg)
+
+Note to the video:
+ * Fitness starts at 2000 so that there is no way for it to be negative (though I _think_ fitness could be negative)
+ * More generations would produce better results. **I will post another video with those better results (and maybe even a more interesting simulation) by 2017.**
