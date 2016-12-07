@@ -110,7 +110,7 @@ A sample run that evolves a network to behave like a XOR-function (which require
 
 ![Evolving network to be XOR-like](https://github.com/meatich/NEAT/blob/master/sshot-251.png "Evolving network to be XOR-like")
 
-Note to the picture:
+Notes to the picture:
  * Population size: 150 organisms
  * When a network's output is rounded to the nearest integer and matches real XOR outputs, the fitness of the function is set to maximum fitness (sixteen) and the experiment ends.
 
@@ -121,6 +121,6 @@ A special [simulation](https://github.com/meatich/PLN-Simulation) was written fo
 
 [![Video](http://img.youtube.com/vi/R9je0GhgaRg/0.jpg)](https://www.youtube.com/watch?v=R9je0GhgaRg)
 
-Note to the video:
+Notes to the video:
  * Fitness starts at 2000 so that there is no way for it to be negative (though I _think_ fitness could be negative)
  * More generations would produce better results. **I will post another video with those better results (and maybe even a more interesting simulation) by 2017.**
